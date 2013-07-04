@@ -34,8 +34,8 @@
 
             // Defaults: plugin parameters override data attributes, which override our defaults
             thisOptions = $.extend(
-                {content: "body", headings: "h1,h2,h3", minHeadings: 0},
-                {content: data.toc || undefined, headings: data.tocHeadings || undefined, minHeadings: data.tocMinHeadings || undefined},
+                {content: "body", headings: "h1,h2,h3", minHeadings: 0, title: null},
+                {content: data.toc || undefined, headings: data.tocHeadings || undefined, minHeadings: data.tocMinHeadings || undefined, title: data.tocTitle || undefined},
                 options
             );
             headingSelectors = thisOptions.headings.split(",");
@@ -44,6 +44,11 @@
             // If not we can skip the whole rest.
             if(thisOptions.minHeadings > $(thisOptions.content + '>' + thisOptions.headings).length) {
                 return;
+            }
+
+            // Add the el for the title, if one has been specified
+            if(thisOptions.title) {
+                $('<div>' + thisOptions.title + '</div>').insertBefore(root);
             }
 
             // Set up some automatic IDs if we do not already have them
