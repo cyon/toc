@@ -69,9 +69,9 @@ title: Table of Contents jQuery Plugin &mdash; jquery.toc
 
     <pre class="prettyprint">&lt;ul data-toc="content" data-toc-headings="headings"&gt;&lt;/ul&gt;</pre>
 
-    <pre class="prettyprint">$(...).toc({content: "body", headings: "h1,h2,h3"});</pre>
+    <pre class="prettyprint">$(...).toc({content: "body", headings: "h1,h2,h3", minHeadings: 3});</pre>
 
-    <p>The plugin has two options:</p>
+    <p>The plugin has three options:</p>
 
     <ul>
         <li>
@@ -85,6 +85,10 @@ title: Table of Contents jQuery Plugin &mdash; jquery.toc
             <code>h2</code> a level 2, and so on. You can use any valid list of jQuery selectors;
             for example, if you just want <code>h1</code> tags with a specific class, and no
             <code>h3</code> tags, you could use <code>"h1.title,h2"</code> for this parameter.</li>
+        <li>
+            <code>minHeadings</code> is a number of headings that have to be in the document before
+            the table of contents is displayed. All headings of the type specified in the <code>headings
+            </code> option are counted.</li>
     </ul>
 
     <p>
