@@ -48,7 +48,7 @@ With options:
 
     $(...).toc({content: "body", headings: "h1,h2,h3"});
 
-The plugin has four options:
+The plugin has the following options:
 
 * `content` is a selector where the plugin will look for headings to build up the TOC. The default
   value is `"body"`.
@@ -61,6 +61,9 @@ The plugin has four options:
   the table of contents is displayed. All headings of the type specified in the `headings` option are counted.
 * `title` is a simple string or html object that is being inserted right before the actual table of 
   contents.
+* `minHeight` is the minimum height (in pixels) which the content has to have before
+  a table of contents will be displayed. If a `minHeadings` has also been specified 
+  then it will only be displayed if both conditions are fulfilled.
 
 In addition, the plugin will create nested lists of the same type (`ul` or `ol`) as the element that
 it is called on.

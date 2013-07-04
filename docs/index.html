@@ -71,7 +71,7 @@ title: Table of Contents jQuery Plugin &mdash; jquery.toc
 
     <pre class="prettyprint">$(...).toc({content: "body", headings: "h1,h2,h3", minHeadings: 3});</pre>
 
-    <p>The plugin has four options:</p>
+    <p>The plugin has the following options:</p>
 
     <ul>
         <li>
@@ -89,6 +89,10 @@ title: Table of Contents jQuery Plugin &mdash; jquery.toc
             <code>minHeadings</code> is a number of headings that have to be in the document before
             the table of contents is displayed. All headings of the type specified in the <code>headings
             </code> option are counted.</li>
+        <li>
+            <code>minHeight</code> is the minimum height (in pixels) which the content has to have before
+            a table of contents will be displayed. If a <code>minHeadings</code> has also been specified 
+            then it will only be displayed if both conditions are fulfilled.</li>
         <li>
             <code>title</code> is a simple string or html object that is being inserted right before the 
             actual table of contents.</li>
