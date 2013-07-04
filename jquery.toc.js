@@ -34,15 +34,30 @@
 
             // Defaults: plugin parameters override data attributes, which override our defaults
             thisOptions = $.extend(
-                {content: "body", headings: "h1,h2,h3", minHeadings: 0, title: null},
-                {content: data.toc || undefined, headings: data.tocHeadings || undefined, minHeadings: data.tocMinHeadings || undefined, title: data.tocTitle || undefined},
+                {
+                    content: "body", 
+                    headings: "h1,h2,h3", 
+                    minHeadings: 0,
+                    minHeight: 0,
+                    title: null
+                },
+                {
+                    content: data.toc || undefined, 
+                    headings: data.tocHeadings || undefined, 
+                    minHeadings: data.tocMinHeadings || undefined,
+                    minHeight: data.tocMinHeight || undefined,
+                    title: data.tocTitle || undefined
+                },
                 options
             );
             headingSelectors = thisOptions.headings.split(",");
 
-            // Check if the amount of headings in the document is higher than the one specified.
-            // If not we can skip the whole rest.
-            if(thisOptions.minHeadings > $(thisOptions.content + '>' + thisOptions.headings).length) {
+            // Don't display the table of contents if either the amount of headings in the specified 
+            // block is lower than the minHeadings specified or the minHeight is not achieved
+            console.debug('height of element', $(thisOptions.content).height());
+            if(thisOptions.minHeadings > $(thisOptions.content + '>' + thisOptions.headings).length ||
+                thisOptions.minHeight > $(thisOptions.content).height()) {
+                
                 return;
             }
 
