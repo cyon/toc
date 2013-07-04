@@ -34,11 +34,17 @@
 
             // Defaults: plugin parameters override data attributes, which override our defaults
             thisOptions = $.extend(
-                {content: "body", headings: "h1,h2,h3"},
-                {content: data.toc || undefined, headings: data.tocHeadings || undefined},
+                {content: "body", headings: "h1,h2,h3", minHeadings: 0},
+                {content: data.toc || undefined, headings: data.tocHeadings || undefined, minHeadings: data.tocMinHeadings || undefined},
                 options
             );
             headingSelectors = thisOptions.headings.split(",");
+
+            // Check if the amount of headings in the document is higher than the one specified.
+            // If not we can skip the whole rest.
+            if(thisOptions.minHeadings > $(thisOptions.content + '>' + thisOptions.headings).length) {
+                return;
+            }
 
             // Set up some automatic IDs if we do not already have them
             $(thisOptions.content).find(thisOptions.headings).attr("id", function (index, attr) {
