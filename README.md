@@ -48,7 +48,7 @@ With options:
 
     $(...).toc({content: "body", headings: "h1,h2,h3"});
 
-The plugin has three options:
+The plugin has four options:
 
 * `content` is a selector where the plugin will look for headings to build up the TOC. The default
   value is `"body"`.
