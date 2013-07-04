@@ -48,7 +48,7 @@ With options:
 
     $(...).toc({content: "body", headings: "h1,h2,h3"});
 
-The plugin has two options:
+The plugin has three options:
 
 * `content` is a selector where the plugin will look for headings to build up the TOC. The default
   value is `"body"`.
@@ -57,6 +57,8 @@ The plugin has two options:
   all `h1`, `h2`, and `h3` elements to build the TOC, with `h1` being a level 1, `h2` a level 2, and
   so on. You can use any valid list of jQuery selectors; for example, if you just want `h1` tags
   with a specific class, and no `h3` tags, you could use `"h1.title,h2"` for this parameter.
+* `minHeadings` is a number of headings that have to be in the document before
+  the table of contents is displayed. All headings of the type specified in the `headings` option are counted.
 
 In addition, the plugin will create nested lists of the same type (`ul` or `ol`) as the element that
 it is called on.
