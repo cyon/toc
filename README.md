@@ -59,6 +59,8 @@ The plugin has three options:
   with a specific class, and no `h3` tags, you could use `"h1.title,h2"` for this parameter.
 * `minHeadings` is a number of headings that have to be in the document before
   the table of contents is displayed. All headings of the type specified in the `headings` option are counted.
+* `title` is a simple string or html object that is being inserted right before the actual table of 
+  contents.
 
 In addition, the plugin will create nested lists of the same type (`ul` or `ol`) as the element that
 it is called on.
