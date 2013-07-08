@@ -63,6 +63,8 @@
             if(thisOptions.minHeadings > $(thisOptions.content + '>' + thisOptions.headings).length ||
                 thisOptions.minHeight > $(thisOptions.content).height()) {
 
+                // The containing div must not be displayed
+                root.hide();
                 return;
             }
 
