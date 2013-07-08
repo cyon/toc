@@ -7,8 +7,7 @@ The generated TOCs are semantic, nested lists (`ul` or `ol`) with hash-link anch
 
 ## Usage
 
-You can [download the latest release](http://ndabas.github.com/toc/assets/jquery.toc.zip), or
-install with Twitter's [Bower](http://twitter.github.com/bower): `bower install jquery.toc`.
+The toc plugin can be used by downloading jquery.toc.js and including it in your html file.
 
 Include jQuery (>= 1.6) and jquery.toc.js/jquery.toc.min.js on your page. The plugin can then be
 used either via HTML5 data attributes, or via the programmatic API. See below for the available
@@ -18,17 +17,17 @@ options.
 
 Minimal example:
 
-    <ul data-toc></ul>
+    <div data-toc></div>
 
 With options:
 
-    <ol data-toc="div.container" data-toc-headings="h2,h3,h4"></ol>
+    <div data-toc="div.container" data-toc-headings="h2,h3,h4"></div>
 
 ### Via the JavaScript programmatic API
 
 Minimal example:
 
-    <ul id="toc"></ul>
+    <div id="toc"></div>
     ...
     <script type="text/javascript">
         $("#toc").toc();
@@ -36,7 +35,7 @@ Minimal example:
 
 With options:
 
-    <ul id="toc"></ul>
+    <div id="toc"></div>
     ...
     <script type="text/javascript">
         $("#toc").toc({content: "div.container", headings: "h2,h3,h4"});
@@ -44,7 +43,7 @@ With options:
 
 ### Options
 
-    <ul data-toc="content" data-toc-headings="headings"></ul>
+    <div data-toc="content" data-toc-headings="headings"></div>
 
     $(...).toc({content: "body", headings: "h1,h2,h3"});
 
