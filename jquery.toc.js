@@ -26,7 +26,6 @@
         return this.each(function () {
             var root = $(this),
                 thisOptions,
-                listTag = this.tagName,
                 currentLevel = 0,
                 headingSelectors;
 
@@ -36,6 +35,7 @@
             var rootUl = $(root.find('ul')[0]);
             var data = root.data();
             var stack = [rootUl];
+            var listTag = root.find('ul')[0].tagName;
 
 
             // Defaults: plugin parameters override data attributes, which override our defaults
