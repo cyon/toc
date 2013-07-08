@@ -2,7 +2,7 @@
  * Table of Contents jQuery Plugin - jquery.toc
  *
  * Copyright 2013 Nikhil Dabas
- * 
+ *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
  * in compliance with the License.  You may obtain a copy of the License at
  *
@@ -25,25 +25,31 @@
     var toc = function (options) {
         return this.each(function () {
             var root = $(this),
-                data = root.data(),
                 thisOptions,
-                stack = [root], // The upside-down stack keeps track of list elements
                 listTag = this.tagName,
                 currentLevel = 0,
                 headingSelectors;
 
+            // Create an ul and make it the root element
+            $('<ul/>').appendTo(root);
+
+            var rootUl = $(root.find('ul')[0]);
+            var data = root.data();
+            var stack = [rootUl];
+
+
             // Defaults: plugin parameters override data attributes, which override our defaults
             thisOptions = $.extend(
                 {
-                    content: "body", 
-                    headings: "h1,h2,h3", 
+                    content: "body",
+                    headings: "h1,h2,h3",
                     minHeadings: 0,
                     minHeight: 0,
                     title: null
                 },
                 {
-                    content: data.toc || undefined, 
-                    headings: data.tocHeadings || undefined, 
+                    content: data.toc || undefined,
+                    headings: data.tocHeadings || undefined,
                     minHeadings: data.tocMinHeadings || undefined,
                     minHeight: data.tocMinHeight || undefined,
                     title: data.tocTitle || undefined
@@ -52,18 +58,17 @@
             );
             headingSelectors = thisOptions.headings.split(",");
 
-            // Don't display the table of contents if either the amount of headings in the specified 
+            // Don't display the table of contents if either the amount of headings in the specified
             // block is lower than the minHeadings specified or the minHeight is not achieved
-            console.debug('height of element', $(thisOptions.content).height());
             if(thisOptions.minHeadings > $(thisOptions.content + '>' + thisOptions.headings).length ||
                 thisOptions.minHeight > $(thisOptions.content).height()) {
-                
+
                 return;
             }
 
             // Add the el for the title, if one has been specified
             if(thisOptions.title) {
-                $('<div>' + thisOptions.title + '</div>').insertBefore(root);
+                $('<div>' + thisOptions.title + '</div>').insertBefore(rootUl);
             }
 
             // Set up some automatic IDs if we do not already have them
